@@ -17,10 +17,14 @@
     <header class="border-b border-[#e3e3e0] dark:border-[#3E3E3A] bg-white dark:bg-[#161615]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <h1 class="text-xl font-semibold">DeinDJ Newsletter Dashboard</h1>
-                <a href="/" class="text-sm text-[#706f6c] dark:text-[#A1A09A] hover:text-[#1b1b18] dark:hover:text-[#EDEDEC]">
-                    ← Back to Home
-                </a>
+                <div class="flex items-center space-x-4">
+                    <div class="bg-white dark:bg-gray-100 rounded px-2 py-1">
+                        <img src="https://deindj.ch/wp-content/uploads/2022/02/DeinDJ-Logo-Dark-2.svg"
+                             alt="DeinDJ Logo"
+                             class="h-6 w-auto">
+                    </div>
+                    <h1 class="text-xl font-semibold">Newsletter Dashboard</h1>
+                </div>
             </div>
         </div>
     </header>
@@ -148,25 +152,6 @@
                 <span>{{ number_format($pendingCount) }} remaining</span>
             </div>
         </div>
-
-        <!-- Daily Statistics -->
-        @if($dailyStats->count() > 0)
-        <div class="bg-white dark:bg-[#161615] p-6 rounded-lg border border-[#e3e3e0] dark:border-[#3E3E3A] mb-8">
-            <h2 class="text-lg font-semibold mb-4">Last 7 Days Activity</h2>
-            <div class="grid grid-cols-7 gap-2">
-                @foreach($dailyStats as $stat)
-                <div class="text-center">
-                    <div class="text-xs text-[#706f6c] dark:text-[#A1A09A] mb-1">
-                        {{ \Carbon\Carbon::parse($stat->date)->format('M d') }}
-                    </div>
-                    <div class="bg-green-100 dark:bg-green-900/20 rounded p-2">
-                        <div class="text-sm font-semibold">{{ $stat->count }}</div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-        @endif
 
         <!-- Recent Activity -->
         <div class="bg-white dark:bg-[#161615] rounded-lg border border-[#e3e3e0] dark:border-[#3E3E3A] overflow-hidden">

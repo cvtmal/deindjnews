@@ -31,14 +31,6 @@ class DashboardController extends Controller
             ->orderBy('sent_at', 'desc')
             ->get(['email', 'name', 'sent_at', 'unsubscribed_at', 'last_clicked_link', 'last_clicked_at']);
 
-        // Get sending statistics by day for the last 7 days
-        $dailyStats = Subscriber::whereNotNull('sent_at')
-            ->where('sent_at', '>=', now()->subDays(7))
-            ->selectRaw('DATE(sent_at) as date, COUNT(*) as count')
-            ->groupBy('date')
-            ->orderBy('date', 'desc')
-            ->get();
-
         // Get click statistics
         $clickedCount = Subscriber::whereNotNull('last_clicked_at')->count();
         $clickRate = $sentCount > 0 ? round(($clickedCount / $sentCount) * 100, 1) : 0;
@@ -59,7 +51,6 @@ class DashboardController extends Controller
             'sendRate',
             'unsubscribeRate',
             'recentActivity',
-            'dailyStats',
             'clickedCount',
             'clickRate',
             'popularLinks'
