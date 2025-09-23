@@ -26,11 +26,11 @@ class DashboardController extends Controller
         $sendRate = $totalSubscribers > 0 ? round(($sentCount / $totalSubscribers) * 100, 1) : 0;
         $unsubscribeRate = $totalSubscribers > 0 ? round(($unsubscribedCount / $totalSubscribers) * 100, 1) : 0;
 
-        // Get recent activity (last 10 sent newsletters)
+        // Get recent activity (last 20 sent newsletters) including click data
         $recentActivity = Subscriber::whereNotNull('sent_at')
             ->orderBy('sent_at', 'desc')
             ->limit(20)
-            ->get(['email', 'name', 'sent_at', 'unsubscribed_at']);
+            ->get(['email', 'name', 'sent_at', 'unsubscribed_at', 'last_clicked_link', 'last_clicked_at']);
 
         // Get sending statistics by day for the last 7 days
         $dailyStats = Subscriber::whereNotNull('sent_at')
@@ -38,6 +38,18 @@ class DashboardController extends Controller
             ->selectRaw('DATE(sent_at) as date, COUNT(*) as count')
             ->groupBy('date')
             ->orderBy('date', 'desc')
+            ->get();
+
+        // Get click statistics
+        $clickedCount = Subscriber::whereNotNull('last_clicked_at')->count();
+        $clickRate = $sentCount > 0 ? round(($clickedCount / $sentCount) * 100, 1) : 0;
+
+        // Get popular links (top 5)
+        $popularLinks = Subscriber::whereNotNull('last_clicked_link')
+            ->selectRaw('last_clicked_link as link, COUNT(*) as clicks')
+            ->groupBy('last_clicked_link')
+            ->orderBy('clicks', 'desc')
+            ->limit(5)
             ->get();
 
         return view('dashboard', compact(
@@ -48,7 +60,10 @@ class DashboardController extends Controller
             'sendRate',
             'unsubscribeRate',
             'recentActivity',
-            'dailyStats'
+            'dailyStats',
+            'clickedCount',
+            'clickRate',
+            'popularLinks'
         ));
     }
 }

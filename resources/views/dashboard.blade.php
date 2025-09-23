@@ -93,6 +93,50 @@
             </div>
         </div>
 
+        <!-- Click Statistics Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <!-- Click Rate -->
+            <div class="bg-white dark:bg-[#161615] p-6 rounded-lg border border-[#e3e3e0] dark:border-[#3E3E3A]">
+                <h2 class="text-lg font-semibold mb-4">Engagement Rate</h2>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-3xl font-bold text-green-600 dark:text-green-400">{{ $clickRate }}%</p>
+                        <p class="text-sm text-[#706f6c] dark:text-[#A1A09A] mt-1">{{ $clickedCount }} of {{ $sentCount }} recipients clicked</p>
+                    </div>
+                    <div class="w-16 h-16 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center">
+                        <svg class="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popular Links -->
+            <div class="bg-white dark:bg-[#161615] p-6 rounded-lg border border-[#e3e3e0] dark:border-[#3E3E3A]">
+                <h2 class="text-lg font-semibold mb-4">Most Clicked Links</h2>
+                @if($popularLinks->count() > 0)
+                    <div class="space-y-3">
+                        @foreach($popularLinks as $link)
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-sm font-medium">{{ $link->link }}</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                        <div class="bg-blue-600 dark:bg-blue-500 h-2 rounded-full"
+                                             style="width: {{ $clickedCount > 0 ? round(($link->clicks / $clickedCount) * 100) : 0 }}%"></div>
+                                    </div>
+                                    <span class="text-sm text-[#706f6c] dark:text-[#A1A09A] min-w-[40px] text-right">{{ $link->clicks }}</span>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @else
+                    <p class="text-sm text-[#706f6c] dark:text-[#A1A09A]">No clicks recorded yet</p>
+                @endif
+            </div>
+        </div>
+
         <!-- Progress Bar -->
         <div class="bg-white dark:bg-[#161615] p-6 rounded-lg border border-[#e3e3e0] dark:border-[#3E3E3A] mb-8">
             <h2 class="text-lg font-semibold mb-4">Sending Progress</h2>
@@ -136,6 +180,7 @@
                             <th class="px-6 py-3 text-left text-xs font-medium text-[#706f6c] dark:text-[#A1A09A] uppercase tracking-wider">Email</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-[#706f6c] dark:text-[#A1A09A] uppercase tracking-wider">Name</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-[#706f6c] dark:text-[#A1A09A] uppercase tracking-wider">Sent At</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-[#706f6c] dark:text-[#A1A09A] uppercase tracking-wider">Last Click</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-[#706f6c] dark:text-[#A1A09A] uppercase tracking-wider">Status</th>
                         </tr>
                     </thead>
@@ -146,6 +191,20 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm">{{ $activity->name ?: '-' }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm">
                                 {{ $activity->sent_at->format('M d, Y H:i') }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                @if($activity->last_clicked_link)
+                                    <div class="flex flex-col">
+                                        <span class="font-medium text-green-600 dark:text-green-400">{{ $activity->last_clicked_link }}</span>
+                                        @if($activity->last_clicked_at)
+                                            <span class="text-xs text-[#706f6c] dark:text-[#A1A09A]">
+                                                {{ \Carbon\Carbon::parse($activity->last_clicked_at)->diffForHumans() }}
+                                            </span>
+                                        @endif
+                                    </div>
+                                @else
+                                    <span class="text-[#706f6c] dark:text-[#A1A09A]">No clicks yet</span>
+                                @endif
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm">
                                 @if($activity->unsubscribed_at)
@@ -161,7 +220,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="4" class="px-6 py-4 text-center text-sm text-[#706f6c] dark:text-[#A1A09A]">
+                            <td colspan="5" class="px-6 py-4 text-center text-sm text-[#706f6c] dark:text-[#A1A09A]">
                                 No newsletters sent yet
                             </td>
                         </tr>
