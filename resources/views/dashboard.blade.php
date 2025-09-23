@@ -24,10 +24,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-4">
-                    <div class="bg-white dark:bg-gray-100 rounded px-2 py-1">
+                    <div class="px-2 py-1">
+                        <!-- Light mode logo -->
                         <img src="https://deindj.ch/wp-content/uploads/2022/02/DeinDJ-Logo-Dark-2.svg"
                              alt="DeinDJ Logo"
-                             class="h-6 w-auto">
+                             class="h-6 w-auto block dark:hidden">
+                        <!-- Dark mode logo -->
+                        <img src="{{ asset('logodarkmode.jpeg') }}"
+                             alt="DeinDJ Logo"
+                             class="h-6 w-auto hidden dark:block">
                     </div>
                     <h1 class="text-xl font-semibold">Newsletter Dashboard</h1>
                 </div>
