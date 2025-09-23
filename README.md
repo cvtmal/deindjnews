@@ -59,3 +59,76 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Newsletter System
+
+### Setup
+
+1. Configure your database and SMTP settings in `.env`:
+
+```env
+# Database Configuration (MariaDB)
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=app
+DB_USERNAME=app
+DB_PASSWORD=secret
+
+# SMTP Configuration
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.example.com
+MAIL_PORT=587
+MAIL_USERNAME=apikey-or-user
+MAIL_PASSWORD=secret
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=newsletter@example.com
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+2. Run migrations:
+```bash
+php artisan migrate
+```
+
+3. Import subscribers (optional):
+
+Using Laravel Tinker to import from a newline-separated list:
+```bash
+php artisan tinker
+```
+
+Then in Tinker:
+```php
+$emails = explode("\n", trim(file_get_contents('subscribers.txt')));
+foreach ($emails as $email) {
+    $parts = explode(',', $email);
+    \App\Models\Subscriber::create([
+        'name' => trim($parts[0] ?? 'Subscriber'),
+        'email' => trim($parts[1] ?? $parts[0])
+    ]);
+}
+```
+
+### CLI Usage
+
+Send one newsletter:
+```bash
+php artisan newsletter:send-one
+```
+
+This command:
+- Sends exactly one email per run to the latest unsent subscriber
+- Logs success/failure
+- Only marks as sent if email is successfully delivered
+- Returns exit code 0 on success, 1 on failure
+
+### Scheduler Setup
+
+To run the newsletter sender automatically every minute, add this cron entry:
+
+```bash
+* * * * * cd /path/to/app && php artisan schedule:run >> /dev/null 2>&1
+```
+
+The scheduler is configured in `routes/console.php` to run `newsletter:send-one` every minute.
