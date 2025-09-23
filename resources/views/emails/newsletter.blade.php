@@ -204,23 +204,47 @@
         }
 
         .serviceGrid {
-            padding: 20px 0;
+            padding: 40px 0 20px 0;
+        }
+
+        .serviceGrid table {
+            table-layout: fixed;
+            width: 100%;
         }
 
         .serviceColumn {
             width: 33.333%;
-            display: inline-block;
             vertical-align: top;
-            padding: 0 12px;
-            text-align: center;
+            padding: 0 0 20px 0;
+            text-align: left;
+        }
+
+        .serviceColumn h3 {
+            font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+            font-size: 20px;
+            margin-bottom: 8px;
+            margin-left: 15px;
+            margin-right: 15px;
+            text-align: left;
+        }
+
+        .serviceColumn p {
+            font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+            font-size: 14px;
+            margin-bottom: 15px;
+            margin-left: 15px;
+            margin-right: 15px;
+            color: #666;
+            text-align: left;
+            line-height: 1.4;
         }
 
         .serviceImage {
             width: 100%;
-            max-width: 200px;
-            height: auto;
-            border-radius: 4px;
-            margin-bottom: 10px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 0;
+            display: block;
         }
 
         .socialContainer {
@@ -277,9 +301,25 @@
             }
 
             .serviceColumn {
-                width: 100% !important;
-                display: block !important;
-                margin-bottom: 20px;
+                width: 33.333% !important;
+                display: table-cell !important;
+                padding: 0 0 15px 0 !important;
+            }
+
+            .serviceColumn h3 {
+                font-size: 16px !important;
+                margin-left: 8px !important;
+                margin-right: 8px !important;
+            }
+
+            .serviceColumn p {
+                font-size: 12px !important;
+                margin-left: 8px !important;
+                margin-right: 8px !important;
+            }
+
+            .serviceImage {
+                height: 100px !important;
             }
 
             .mceText h1 {
@@ -396,10 +436,11 @@
                                                 <tr>
                                                     <td class="contentContainer">
                                                         <div class="serviceGrid">
-                                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                            <!-- First Row -->
+                                                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #ffffff;">
                                                                 <tr>
                                                                     <td class="serviceColumn">
-                                                                        <h3>DJs</h3>
+                                                                        <h3><strong>DJs</strong></h3>
                                                                         <p>Stimmung für jeden Anlass</p>
                                                                         <a href="https://deindj.ch/djs/" target="_blank">
                                                                             <img src="https://mcusercontent.com/1417a75bfb8e2a48bbdf25798/images/d12fae8e-d20d-bfc2-794f-f6210dfda781.jpg"
@@ -408,7 +449,7 @@
                                                                         </a>
                                                                     </td>
                                                                     <td class="serviceColumn">
-                                                                        <h3>Bands</h3>
+                                                                        <h3><strong>Bands</strong></h3>
                                                                         <p>Live-Bands machen dein Fest zur Show</p>
                                                                         <a href="https://deindj.ch/partybands/" target="_blank">
                                                                             <img src="https://mcusercontent.com/1417a75bfb8e2a48bbdf25798/images/ea6d7885-61c2-1c2e-6d09-a61ae14904c5.jpg"
@@ -417,11 +458,44 @@
                                                                         </a>
                                                                     </td>
                                                                     <td class="serviceColumn">
-                                                                        <h3>Gesang</h3>
+                                                                        <h3><strong>Gesang</strong></h3>
                                                                         <p>Gib deinem Anlass eine Stimme</p>
                                                                         <a href="https://deindj.ch/saenger/" target="_blank">
                                                                             <img src="https://mcusercontent.com/1417a75bfb8e2a48bbdf25798/images/afef6fea-638e-a52f-64b9-048e5b91453a.jpg"
                                                                                  alt="Gesang"
+                                                                                 class="serviceImage" />
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+
+                                                            <!-- Second Row -->
+                                                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #ffffff;">
+                                                                <tr>
+                                                                    <td class="serviceColumn">
+                                                                        <h3><strong>Saxophon</strong></h3>
+                                                                        <p>Atmosphäre vom Dinner bis zur Party</p>
+                                                                        <a href="https://deindj.ch/saxophonisten/" target="_blank">
+                                                                            <img src="https://mcusercontent.com/1417a75bfb8e2a48bbdf25798/images/348c8918-60d9-a95d-c3a3-4593a3a82381.jpg"
+                                                                                 alt="Saxophon"
+                                                                                 class="serviceImage" />
+                                                                        </a>
+                                                                    </td>
+                                                                    <td class="serviceColumn">
+                                                                        <h3><strong>Fotografie</strong></h3>
+                                                                        <p>Euer Anlass in Bildern erzählt</p>
+                                                                        <a href="https://deindj.ch/hochzeitsfotografen/" target="_blank">
+                                                                            <img src="https://mcusercontent.com/1417a75bfb8e2a48bbdf25798/images/4ff95527-c5e1-ae11-de8f-eaaeba90c1ac.jpg"
+                                                                                 alt="Fotografie"
+                                                                                 class="serviceImage" />
+                                                                        </a>
+                                                                    </td>
+                                                                    <td class="serviceColumn">
+                                                                        <h3><strong>Zeremonie</strong></h3>
+                                                                        <p>Individuell und persönlich für euch</p>
+                                                                        <a href="https://deindj.ch/traurednerinnen/" target="_blank">
+                                                                            <img src="https://mcusercontent.com/1417a75bfb8e2a48bbdf25798/images/4c55d32d-f7d9-4959-d25b-5eb315488381.jpeg"
+                                                                                 alt="Zeremonie"
                                                                                  class="serviceImage" />
                                                                         </a>
                                                                     </td>
@@ -475,4 +549,4 @@
         </table>
     </center>
 </body>
-</html>
+</html>/
