@@ -32,3 +32,7 @@ Route::get('/unsubscribe/{email}', [UnsubscribeController::class, 'unsubscribe']
     ->name('unsubscribe');
 Route::get('/unsubscribe-success', [UnsubscribeController::class, 'success'])
     ->name('unsubscribe.success');
+
+// Test newsletter route (for production testing)
+Route::get('/send-test-newsletter', [\App\Http\Controllers\TestNewsletterController::class, 'sendTest'])
+    ->name('newsletter.test');
