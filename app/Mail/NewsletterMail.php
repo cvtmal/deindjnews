@@ -39,6 +39,9 @@ class NewsletterMail extends Mailable
             view: 'emails.newsletter',
             with: [
                 'email' => $this->subscriber->email,
+                'trackUrl' => function ($url) {
+                    return url('/click').'?url='.urlencode($url).'&email='.urlencode($this->subscriber->email);
+                },
             ]
         );
     }

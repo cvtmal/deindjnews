@@ -448,7 +448,7 @@
                                                 <!-- Logo -->
                                                 <tr>
                                                     <td class="logoContainer">
-                                                        <a href="https://deindj.ch" target="_blank">
+                                                        <a href="{{ $trackUrl('https://deindj.ch') }}" target="_blank">
                                                             <img src="https://sawa-dev-2-storage-bucket.storage.googleapis.com/profiles/8drdb2mjxf9noul4-b7836.png"
                                                                  alt="DeinDJ Logo"
                                                                  class="logoImage" />
@@ -466,11 +466,11 @@
                                                         </br>
 
                                                             <ul>
-                                                                <li><a href="https://deindj.ch/saxophonisten/" target="_blank">Saxophonspieler*innen</a></li>
-                                                                <li><a href="https://deindj.ch/partybands/" target="_blank">Partybands</a></li>
-                                                                <li><a href="https://deindj.ch/saenger/" target="_blank">Sänger*innen</a></li>
-                                                                <li><a href="https://deindj.ch/traurednerinnen/" target="_blank">Trauredner*innen</a></li>
-                                                                <li><a href="https://deindj.ch/hochzeitsfotografen/" target="_blank">Fotograf*innen</a></li>
+                                                                <li><a href="{{ $trackUrl('https://deindj.ch/saxophonisten/') }}" target="_blank">Saxophonspieler*innen</a></li>
+                                                                <li><a href="{{ $trackUrl('https://deindj.ch/partybands/') }}" target="_blank">Partybands</a></li>
+                                                                <li><a href="{{ $trackUrl('https://deindj.ch/saenger/') }}" target="_blank">Sänger*innen</a></li>
+                                                                <li><a href="{{ $trackUrl('https://deindj.ch/traurednerinnen/') }}" target="_blank">Trauredner*innen</a></li>
+                                                                <li><a href="{{ $trackUrl('https://deindj.ch/hochzeitsfotografen/') }}" target="_blank">Fotograf*innen</a></li>
                                                             </ul>
                                                             </br>
 
@@ -484,7 +484,7 @@
                                                         </br>
 
                                                         <div class="buttonContainer">
-                                                            <a href="https://deindj.ch/" target="_blank" class="mceButton">Jetzt anfragen</a>
+                                                            <a href="{{ $trackUrl('https://deindj.ch/') }}" target="_blank" class="mceButton">Jetzt anfragen</a>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -505,7 +505,7 @@
                                                                 </ul>
 
                                                                 <div class="buttonContainer">
-                                                                    <a href="https://deindj.ch/" target="_blank" class="mceButton">Jetzt anfragen</a>
+                                                                    <a href="{{ $trackUrl('https://deindj.ch/') }}" target="_blank" class="mceButton">Jetzt anfragen</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -522,7 +522,7 @@
                                                                     <td class="serviceColumn">
                                                                         <h3><strong>DJs</strong></h3>
                                                                         <p>Stimmung für jeden Anlass</p>
-                                                                        <a href="https://deindj.ch/djs/" target="_blank">
+                                                                        <a href="{{ $trackUrl('https://deindj.ch/djs/') }}" target="_blank">
                                                                             <img src="https://mcusercontent.com/1417a75bfb8e2a48bbdf25798/images/d12fae8e-d20d-bfc2-794f-f6210dfda781.jpg"
                                                                                  alt="DJs"
                                                                                  class="serviceImage" />
@@ -531,7 +531,7 @@
                                                                     <td class="serviceColumn">
                                                                         <h3><strong>Bands</strong></h3>
                                                                         <p>Live-Bands machen dein Fest zur Show</p>
-                                                                        <a href="https://deindj.ch/partybands/" target="_blank">
+                                                                        <a href="{{ $trackUrl('https://deindj.ch/partybands/') }}" target="_blank">
                                                                             <img src="https://mcusercontent.com/1417a75bfb8e2a48bbdf25798/images/ea6d7885-61c2-1c2e-6d09-a61ae14904c5.jpg"
                                                                                  alt="Bands"
                                                                                  class="serviceImage" />
@@ -540,7 +540,7 @@
                                                                     <td class="serviceColumn">
                                                                         <h3><strong>Gesang</strong></h3>
                                                                         <p>Gib deinem Anlass eine Stimme</p>
-                                                                        <a href="https://deindj.ch/saenger/" target="_blank">
+                                                                        <a href="{{ $trackUrl('https://deindj.ch/saenger/') }}" target="_blank">
                                                                             <img src="https://mcusercontent.com/1417a75bfb8e2a48bbdf25798/images/afef6fea-638e-a52f-64b9-048e5b91453a.jpg"
                                                                                  alt="Gesang"
                                                                                  class="serviceImage" />
@@ -555,7 +555,7 @@
                                                                     <td class="serviceColumn">
                                                                         <h3><strong>Saxophon</strong></h3>
                                                                         <p>Atmosphäre vom Dinner bis zur Party</p>
-                                                                        <a href="https://deindj.ch/saxophonisten/" target="_blank">
+                                                                        <a href="{{ $trackUrl('https://deindj.ch/saxophonisten/') }}" target="_blank">
                                                                             <img src="https://mcusercontent.com/1417a75bfb8e2a48bbdf25798/images/348c8918-60d9-a95d-c3a3-4593a3a82381.jpg"
                                                                                  alt="Saxophon"
                                                                                  class="serviceImage" />
@@ -564,7 +564,7 @@
                                                                     <td class="serviceColumn">
                                                                         <h3><strong>Fotografie</strong></h3>
                                                                         <p>Euer Anlass in Bildern erzählt</p>
-                                                                        <a href="https://deindj.ch/hochzeitsfotografen/" target="_blank">
+                                                                        <a href="{{ $trackUrl('https://deindj.ch/hochzeitsfotografen/') }}" target="_blank">
                                                                             <img src="https://mcusercontent.com/1417a75bfb8e2a48bbdf25798/images/4ff95527-c5e1-ae11-de8f-eaaeba90c1ac.jpg"
                                                                                  alt="Fotografie"
                                                                                  class="serviceImage" />
@@ -573,7 +573,7 @@
                                                                     <td class="serviceColumn">
                                                                         <h3><strong>Zeremonie</strong></h3>
                                                                         <p>Individuell und persönlich für euch</p>
-                                                                        <a href="https://deindj.ch/traurednerinnen/" target="_blank">
+                                                                        <a href="{{ $trackUrl('https://deindj.ch/traurednerinnen/') }}" target="_blank">
                                                                             <img src="https://mcusercontent.com/1417a75bfb8e2a48bbdf25798/images/4c55d32d-f7d9-4959-d25b-5eb315488381.jpeg"
                                                                                  alt="Zeremonie"
                                                                                  class="serviceImage" />

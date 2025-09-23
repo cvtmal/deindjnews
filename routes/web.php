@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClickController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UnsubscribeController;
 use App\Mail\NewsletterMail;
@@ -12,6 +13,9 @@ Route::get('/', function () {
 
 // Dashboard route (public, no auth)
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+// Click tracking route
+Route::get('/click', [ClickController::class, 'track'])->name('click.track');
 
 Route::get('/mail/preview', function () {
     // Create a dummy subscriber for preview
