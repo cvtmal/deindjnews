@@ -14,16 +14,16 @@ class SubscriberSeeder extends Seeder
     {
         $subscribers = [
             [
-                'email' => 'anna.mueller@example.com',
-                'name' => 'Anna Müller',
+                'email' => 'ermanni.damian@gmail.com',
+                'name' => 'Damian Ermanni',
             ],
             [
-                'email' => 'thomas.weber@example.com',
-                'name' => 'Thomas Weber',
+                'email' => 'hallo@deindj.ch',
+                'name' => 'Junus Celebi',
             ],
             [
-                'email' => 'sarah.schmidt@example.com',
-                'name' => 'Sarah Schmidt',
+                'email' => 'junus.celebi@gmail.com',
+                'name' => 'Junus Celebi Gmail',
             ],
         ];
 
