@@ -131,6 +131,11 @@
             margin-bottom: 8px;
         }
 
+        .featureSection .mceText li {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
         .bodyCell {
             margin: 0 auto;
             padding: 0;
@@ -155,10 +160,11 @@
         .headerBanner strong {
             color: #000000;
             font-size: 16px;
+            font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
         }
 
         .logoContainer {
-            padding: 20px 0 10px 0;
+            padding: 40px 0 10px 0;
             text-align: center;
         }
 
@@ -187,13 +193,13 @@
         .mceButton {
             background-color: #505ae6;
             border-radius: 50px;
-            color: #ffffff;
+            color: #ffffff !important;
             display: inline-block;
             font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
             font-size: 16px;
             font-weight: normal;
             padding: 12px 28px;
-            text-decoration: none;
+            text-decoration: none !important;
             text-align: center;
         }
 
@@ -337,6 +343,7 @@
                                                             <h1>Plant ihr gerade euren nächsten Anlass?</h1>
 
                                                             <p>Im letzten Jahr durften wir über 1000 DJs vermitteln und haben nun unser Angebot erweitert. Neu findet ihr bei uns auch:</p>
+                                                        </br>
 
                                                             <ul>
                                                                 <li><a href="https://deindj.ch/saxophonisten/" target="_blank">Saxophonspieler*innen</a></li>
@@ -345,6 +352,7 @@
                                                                 <li><a href="https://deindj.ch/traurednerinnen/" target="_blank">Trauredner*innen</a></li>
                                                                 <li><a href="https://deindj.ch/hochzeitsfotografen/" target="_blank">Fotograf*innen</a></li>
                                                             </ul>
+                                                            </br>
 
                                                             <p>So wird euer Event noch vielseitiger.</p>
 
@@ -353,6 +361,7 @@
                                                             <p>Herzliche Grüsse<br/>
                                                             Toni + Junus, DJs und Kapitäne 👨🏻‍✈️ von DeinDJ.ch</p>
                                                         </div>
+                                                        </br>
 
                                                         <div class="buttonContainer">
                                                             <a href="https://deindj.ch/" target="_blank" class="mceButton">Jetzt anfragen</a>
