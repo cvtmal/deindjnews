@@ -26,10 +26,9 @@ class DashboardController extends Controller
         $sendRate = $totalSubscribers > 0 ? round(($sentCount / $totalSubscribers) * 100, 1) : 0;
         $unsubscribeRate = $totalSubscribers > 0 ? round(($unsubscribedCount / $totalSubscribers) * 100, 1) : 0;
 
-        // Get recent activity (last 20 sent newsletters) including click data
+        // Get recent activity (all sent newsletters) including click data
         $recentActivity = Subscriber::whereNotNull('sent_at')
             ->orderBy('sent_at', 'desc')
-            ->limit(20)
             ->get(['email', 'name', 'sent_at', 'unsubscribed_at', 'last_clicked_link', 'last_clicked_at']);
 
         // Get sending statistics by day for the last 7 days
