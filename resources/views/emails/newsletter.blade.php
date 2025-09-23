@@ -11,8 +11,10 @@
     <![endif]-->
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Our Newsletter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="x-apple-disable-message-reformatting"/>
+    <title>DeinDJ Newsletter</title>
     <style>
         /* Reset styles */
         img {
@@ -283,60 +285,138 @@
         }
 
         /* Mobile styles */
-        @media only screen and (max-width: 480px) {
+        @media only screen and (max-width: 600px) {
             body, table, td, p, a, li, blockquote {
                 -webkit-text-size-adjust: none !important;
             }
 
-            .mceWrapperInner {
+            body {
+                width: 100% !important;
+                min-width: 100% !important;
+            }
+
+            #bodyTable {
                 width: 100% !important;
             }
 
+            .mceWrapperInner {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
             .contentContainer {
-                padding: 20px 20px !important;
+                padding: 20px 15px !important;
             }
 
             .featureSection {
-                padding: 25px 20px !important;
+                padding: 25px 15px !important;
             }
 
+            .logoImage {
+                max-width: 160px !important;
+            }
+
+            .headerBanner {
+                padding: 10px 15px !important;
+            }
+
+            .headerBanner strong {
+                font-size: 14px !important;
+            }
+
+            /* Keep services in 3 columns but make them smaller */
             .serviceColumn {
                 width: 33.333% !important;
                 display: table-cell !important;
-                padding: 0 0 15px 0 !important;
+                padding: 0 0 10px 0 !important;
             }
 
             .serviceColumn h3 {
-                font-size: 16px !important;
-                margin-left: 8px !important;
-                margin-right: 8px !important;
+                font-size: 14px !important;
+                margin-left: 5px !important;
+                margin-right: 5px !important;
             }
 
             .serviceColumn p {
-                font-size: 12px !important;
-                margin-left: 8px !important;
-                margin-right: 8px !important;
+                font-size: 11px !important;
+                margin-left: 5px !important;
+                margin-right: 5px !important;
+                margin-bottom: 8px !important;
             }
 
             .serviceImage {
-                height: 100px !important;
+                height: 80px !important;
             }
 
             .mceText h1 {
-                font-size: 22px !important;
+                font-size: 20px !important;
+                line-height: 1.3 !important;
             }
 
             .mceText h2 {
-                font-size: 20px !important;
+                font-size: 18px !important;
             }
 
             .mceText p {
-                font-size: 16px !important;
+                font-size: 15px !important;
+            }
+
+            .mceText ul {
+                margin-left: 15px !important;
+            }
+
+            .mceText li {
+                font-size: 15px !important;
             }
 
             .mceButton {
                 padding: 12px 24px !important;
                 font-size: 14px !important;
+                display: block !important;
+                width: 90% !important;
+                margin: 0 auto !important;
+            }
+
+            .socialIcon {
+                margin: 0 5px !important;
+            }
+
+            .socialIcon img {
+                width: 35px !important;
+                height: 35px !important;
+            }
+
+            .footerContainer {
+                padding: 15px !important;
+                font-size: 11px !important;
+            }
+
+            .footerContainer p {
+                font-size: 11px !important;
+            }
+        }
+
+        /* Very small phones */
+        @media only screen and (max-width: 380px) {
+            .serviceColumn h3 {
+                font-size: 12px !important;
+            }
+
+            .serviceColumn p {
+                font-size: 10px !important;
+            }
+
+            .serviceImage {
+                height: 60px !important;
+            }
+
+            .mceText h1 {
+                font-size: 18px !important;
+            }
+
+            .mceButton {
+                font-size: 13px !important;
+                padding: 10px 20px !important;
             }
         }
     </style>
