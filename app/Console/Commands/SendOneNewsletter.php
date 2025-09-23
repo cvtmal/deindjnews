@@ -30,8 +30,9 @@ class SendOneNewsletter extends Command
      */
     public function handle(): int
     {
-        // Query for the latest unsent subscriber
+        // Query for the latest unsent subscriber who has not unsubscribed
         $subscriber = Subscriber::whereNull('sent_at')
+            ->whereNull('unsubscribed_at')
             ->orderByDesc('id')
             ->first();
 

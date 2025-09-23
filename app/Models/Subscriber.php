@@ -13,6 +13,7 @@ class Subscriber extends Model
      */
     protected $casts = [
         'sent_at' => 'datetime',
+        'unsubscribed_at' => 'datetime',
     ];
 
     /**
@@ -24,5 +25,6 @@ class Subscriber extends Model
         'name',
         'email',
         'sent_at',
+        'unsubscribed_at',
     ];
 }

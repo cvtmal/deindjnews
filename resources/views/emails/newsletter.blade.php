@@ -533,11 +533,9 @@
                                 <!-- Footer -->
                                 <tr>
                                     <td class="footerContainer">
-                                        <p>Diese E-Mail wurde an {{ $email }} gesendet</p>
                                         <p>&copy; {{ date('Y') }} DeinDJ.ch. Alle Rechte vorbehalten.</p>
                                         <p>
-                                            <a href="https://deindj.ch" target="_blank">Website besuchen</a> |
-                                            <a href="*|UNSUB|*">Abmelden</a>
+                                            <a href="{{ url('/unsubscribe/' . urlencode($email)) }}">Abmelden</a>
                                         </p>
                                     </td>
                                 </tr>
