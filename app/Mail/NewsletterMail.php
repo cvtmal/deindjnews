@@ -26,7 +26,7 @@ class NewsletterMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Our Newsletter',
+            subject: 'Neu bei DeinDJ.ch: Mehr Musik für euren Anlass',
         );
     }
 
