@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('subscribers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('sent_at')->nullable()->index();
+            $table->string('name')->nullable();
+            $table->timestamp('sent_at')->nullable();
             $table->timestamps();
         });
     }

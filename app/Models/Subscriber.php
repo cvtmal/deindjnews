@@ -7,6 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Subscriber extends Model
 {
     /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'sent_at' => 'datetime',
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<string>
@@ -15,14 +24,5 @@ class Subscriber extends Model
         'name',
         'email',
         'sent_at',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'sent_at' => 'datetime',
     ];
 }

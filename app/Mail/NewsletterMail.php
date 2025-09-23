@@ -38,7 +38,6 @@ class NewsletterMail extends Mailable
         return new Content(
             view: 'emails.newsletter',
             with: [
-                'name' => $this->subscriber->name,
                 'email' => $this->subscriber->email,
             ]
         );
