@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Mail\NewsletterFailureNotification;
 use App\Mail\NewsletterMail;
 use App\Models\Subscriber;
 use Illuminate\Console\Command;
@@ -66,6 +67,30 @@ class SendOneNewsletter extends Command
                 'email' => $subscriber->email,
                 'error' => $e->getMessage(),
             ]);
+
+            // Send notification emails to administrators
+            $notification = new NewsletterFailureNotification(
+                $subscriber->email,
+                $e->getMessage()
+            );
+
+            $adminEmails = [
+                'hallo@deindj.ch',
+                'damian.ermanni@myitjob.ch',
+            ];
+
+            foreach ($adminEmails as $adminEmail) {
+                try {
+                    Mail::to($adminEmail)->send($notification);
+                    $this->info("Failure notification sent to {$adminEmail}");
+                } catch (Throwable $notificationError) {
+                    $this->error("Failed to send notification to {$adminEmail}: {$notificationError->getMessage()}");
+                    Log::error('Failed to send failure notification', [
+                        'admin_email' => $adminEmail,
+                        'error' => $notificationError->getMessage(),
+                    ]);
+                }
+            }
 
             return 1;
         }
